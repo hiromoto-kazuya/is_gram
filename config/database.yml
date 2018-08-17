@@ -1,0 +1,19 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: is_gram_clone_development
+
+test:
+  <<: *default
+  database: is_gram_clone_test
+
+production:
+  <<: *default
+  database: is_gram_clone_production
+  username: is_gram_clone
+  password: <%= ENV['IS_GRAM_CLONE_DATABASE_PASSWORD'] %>
