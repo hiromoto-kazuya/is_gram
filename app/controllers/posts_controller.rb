@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :check_user_login_status, only:[:new, :edit, :show, :destroy]
 
   def index
     @posts = Post.all
@@ -11,15 +12,19 @@ class PostsController < ApplicationController
     else
       @post = Post.new
     end
+
   end
 
   def confirm
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     render :new if @post.invalid?
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+
     if @post.save
       redirect_to posts_path, notice: "投稿が完了しました"
     else
@@ -28,6 +33,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(post_id: @post.id)
   end
 
   def edit
@@ -49,7 +55,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title,:content)
+    params.require(:post).permit(:title,:content,:user_id)
   end
 
   def set_post
