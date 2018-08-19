@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new,:create,:show]
+  get "/favorites/:id", to: "users#favorites"
   resources :favorites, only: [:create, :destroy]
 
 end

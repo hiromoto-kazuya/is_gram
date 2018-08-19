@@ -16,6 +16,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def favorites
+    @user = User.find(params[:id])
+    if @user.favorites
+      @favorites = Favorite.where(user_id: session[:user_id])
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password,:password_confirmation)

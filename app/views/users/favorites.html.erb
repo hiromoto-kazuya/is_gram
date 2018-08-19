@@ -1,0 +1,17 @@
+<h3>お気に入り一覧</h3>
+  <table>
+    <tr class = "row">
+      <th class = "col-md-2">ユーザー</th>
+      <th class = "col-md-3">タイトル</th>
+      <th class = "col-md-7">ブログ内容</th>
+    </tr>
+
+    <% @favorites.each do |favorite| %>
+      <tr class = "row">
+        <td class = "col-md-2"><%= favorite.post.user.name %></td>
+        <td class = "col-md-3"><%= favorite.post.title %></td>
+        <td class = "col-md-7"><%= favorite.post.content %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
