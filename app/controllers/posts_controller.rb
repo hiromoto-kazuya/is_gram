@@ -26,6 +26,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
+      PostMailer.post_mail(@post).deliver
       redirect_to posts_path, notice: "投稿が完了しました"
     else
       render'new'
