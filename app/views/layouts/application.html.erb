@@ -9,18 +9,42 @@
   </head>
 
   <body>
-    <% if current_page?(new_user_path) || current_page?("/") %>
+    <header>
+      <% if current_page?(new_user_path) || current_page?("/") %>
 
-    <% elsif logged_in? %>
-      <%= link_to "プロフィール", user_path(current_user.id) %>
-      <%= link_to "投稿一覧", posts_path %>
-      <%= link_to "投稿する", new_post_path %>
-      <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "ユーザー登録", new_user_path %>
-      <%= link_to "ログイン", new_session_path %>
-    <% end %>
+      <% elsif logged_in? %>
+        <%= link_to "プロフィール", user_path(current_user.id) %>
+        <%= link_to "投稿一覧", posts_path %>
+        <%= link_to "投稿する", new_post_path %>
+        <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+      <% else %>
+        <%= link_to "ユーザー登録", new_user_path %>
+        <%= link_to "ログイン", new_session_path %>
+      <% end %>
+    </header>
 
     <%= yield %>
+
+    <footer>
+      <div class = "footer-menu">
+        <ul>
+          <li><%= link_to "CLONEGRAMについて", ("#") %></li>
+          <li><%= link_to "サポート", ("#") %></li>
+          <li><%= link_to "プレス", ("#") %></li>
+          <li><%= link_to "API", ("#") %></li>
+          <li><%= link_to "求人", ("#") %></li>
+          <li><%= link_to "プライバシー", ("#") %></li>
+          <li><%= link_to "利用規約", ("#") %></li>
+          <li><%= link_to "ディレクトリ", ("#") %></li>
+          <li><%= link_to "プロフィール", ("#") %></li>
+          <li><%= link_to "ハッシュタグ", ("#") %></li>
+          <li><%= link_to "言語", ("#") %></li>
+          <p class = "copyright">© 2018 CLONEGRAM</p>
+        </ul>
+
+      </div>
+
+    </footer>
+
   </body>
 </html>
