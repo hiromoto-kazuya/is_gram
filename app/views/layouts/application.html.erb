@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Is_Gram_Clone</title>
+    <title>Clonegram</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,8 +9,9 @@
   </head>
 
   <body>
+    <% if current_page?(new_user_path) || current_page?("/") %>
 
-    <% if logged_in? %>
+    <% elsif logged_in? %>
       <%= link_to "プロフィール", user_path(current_user.id) %>
       <%= link_to "投稿一覧", posts_path %>
       <%= link_to "投稿する", new_post_path %>

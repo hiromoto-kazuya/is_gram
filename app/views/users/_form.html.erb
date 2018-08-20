@@ -29,3 +29,58 @@
 
   <%= f.submit "Create my account" %>
 <% end %>
+
+
+<div class = "form-wrapper">
+  <div class = "form-container">
+    <h1 class ="logo">Instagram</h1>
+    <h2 class = "subtitle">友達の写真や動画をチェックしよう</h2>
+    <%= link_to "Facebookでログイン", ("#"), class: "btn facebook" %>
+    <div class = "mini-text">
+      <div class = "line line-left"></div>
+      または
+      <div class = "line line-right"></div>
+    </div>
+
+    <form class="form-inline">
+      <%= form_with(model: @user, local: true) do |f| %>
+        <div class = "form-group">
+          <%= f.email_field :email, class: "form-control",
+                            placeholder: "メールアドレス" %>
+        </div>
+        <div class = "form-group">
+          <%= f.text_field :name, class: "form-control",
+                            placeholder: "ユーザーネーム" %>
+        </div>
+        <div class = "form-group">
+          <%= f.password_field :password, class: "form-control",
+                                placeholder: "パスワード(6文字以上)" %>
+        </div>
+        <div class = "form-group">
+          <%= f.password_field :password_confirmation, class: "form-control",
+                                placeholder: "確認パスワード"%>
+        </div>
+        <%= f.submit "登録する", class: "btn submit" %>
+
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <p class = "rule_text">登録することで、Facebookの<strong>利用規約</strong>、
+          <strong>データに関するポリシー</strong>、<strong>Cookieポリシー</strong>に同意するものとします。</p>
+
+      <% end %>
+    </form>
+  </div>
+</div>
+
+<div class = "login_link">
+  <div class = "login" >アカウントをお持ちですか？<%= link_to "ログイン", new_session_path %></div>
+</div>

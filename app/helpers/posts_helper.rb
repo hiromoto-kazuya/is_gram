@@ -6,4 +6,5 @@ module PostsHelper
       post_path
     end
   end
+
 end

@@ -1,3 +1,123 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+//new.html.erb
+.form-wrapper {
+  width: 350px;
+  height: 100%;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  margin: 0 auto;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.form-container {
+  text-align: center;
+  padding: 0px 40px;
+}
+
+.logo {
+  font-family: "Brush Script MT";
+  font-size: 50px;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 17px;
+  font-weight: bold;
+  color: #999;
+}
+
+.mini-text {
+  height: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #999;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+
+.line {
+  position:relative;
+  top: 13px;
+  height: 3px;
+  width: 95px;
+  border: 1px solid #ffffff;
+  background-color: #e6e6e6;
+  line-height: 60px;
+}
+
+.line-left {
+  float: left;
+}
+
+.line-right {
+  float: right;
+}
+
+.form-group {
+
+}
+
+.form-control {
+  width: 100%;
+  background: #fafafa;
+  margin-bottom: 5px;
+  border: 1px solid #e6e6e6
+}
+
+.btn {
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  background-color: #3897f0;
+}
+
+.facebook {
+  margin-bottom: 10px;
+}
+
+.submit {
+  margin-top: 15px;
+}
+
+.error_explanation {
+  margin: 10px 0px;
+  color: red;
+}
+
+.rule_text {
+  font-size: 14px;
+  color: #999;
+  margin: 10px 30px 30px 30px;
+}
+
+.login_link {
+  width: 350px;
+  height: 70px;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  margin: 0 auto;
+}
+
+.login {
+  text-align: center;
+  line-height: 70px;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 767px){
+
+}

@@ -1,33 +1,52 @@
-<h1>Is_gram</h1>
-
-<!--form_withのmodel: @userをurl指定に変えた-->
-<%= form_with(model: @user, local: true) do |f| %>
-<table>
-  <!--%= f.label :name %>-->
-  <%= f.text_field :name %>
-  <br>
-  <!--<%= f.label :email %>-->
-  <%= f.email_field :email %>
-  <br>
-  <!--<%= f.label :image %>-->
-  <!--<%= f.file_field :image, id: :user_image %>-->
-
-  <!--<%= f.label :password %>-->
-  <%= f.password_field :password %>
-  <br>
-  <!--<%= f.label :password_confirmation %>-->
-  <%= f.password_field :password_confirmation %>
-  <br>
-  <%= f.submit "Create my account" %>
-</table>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class = "form-wrapper">
+  <div class = "form-container">
+    <h1 class ="logo">Clonegram</h1>
+    <h2 class = "subtitle">友達の写真や動画をチェックしよう</h2>
+    <%= link_to "Facebookでログイン", ("#"), class: "btn facebook" %>
+    <div class = "mini-text">
+      <div class = "line line-left"></div>
+      または
+      <div class = "line line-right"></div>
     </div>
-  <% end %>
-<% end %>
+
+    <div class="form-inline">
+      <%= form_with(model: @user, local: true) do |f| %>
+        <div class = "form-group">
+          <%= f.email_field :email, class: "form-control",
+                            placeholder: "メールアドレス" %>
+        </div>
+        <div class = "form-group">
+          <%= f.text_field :name, class: "form-control",
+                            placeholder: "ユーザーネーム" %>
+        </div>
+        <div class = "form-group">
+          <%= f.password_field :password, class: "form-control",
+                                placeholder: "パスワード(6文字以上)" %>
+        </div>
+        <div class = "form-group">
+          <%= f.password_field :password_confirmation, class: "form-control",
+                                placeholder: "確認パスワード"%>
+        </div>
+        <%= f.submit "登録する", class: "btn submit" %>
+
+        <% if @user.errors.any? %>
+          <div id="error_explanation" class = "error_explanation">
+
+            <% @user.errors.full_messages.each do |message| %>
+              <%= message %>
+            <% end %>
+
+          </div>
+        <% end %>
+
+        <p class = "rule_text">登録することで、Facebookの<strong>利用規約</strong>、
+          <strong>データに関するポリシー</strong>、<strong>Cookieポリシー</strong>に同意するものとします。</p>
+
+      <% end %>
+   </div>
+  </div>
+</div>
+
+<div class = "login_link">
+  <div class = "login" >アカウントをお持ちですか？<%= link_to "ログイン", new_session_path %></div>
+</div>

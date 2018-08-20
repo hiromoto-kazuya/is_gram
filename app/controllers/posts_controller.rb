@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :check_user_login_status, only:[:new, :edit, :show, :destroy]
+  before_action :check_user_login_status, only:[:index, :new, :edit, :show, :destroy]
 
   def index
     @posts = Post.all

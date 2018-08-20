@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get "/", to: "users#new"
-  #post "/", to: "user#create"
 
   resources :posts do
     collection do
