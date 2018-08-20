@@ -7,6 +7,7 @@
     <th>ユーザー名</th>
     <th>タイトル</th>
     <th>内容</th>
+    <th>画像</th>
   </tr>
 
 <% @posts.each do |post| %>
@@ -14,9 +15,9 @@
     <td><%= post.user.name %></td>
     <td><%= post.title %></td>
     <td><%= post.content %></td>
+    <td><%= image_tag post.image %></td>
     <td><%= link_to '詳細を見る', post_path(post.id) %></td>
-    <td><%= link_to "編集する", edit_post_path(post.id) %></td>
-    <td><%= link_to '削除する', post_path(post.id), method: :delete,data: { confirm: '本当に削除しますか？'} %></td>
+
   </tr>
 <% end %>
 </table>

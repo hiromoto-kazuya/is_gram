@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get "/" , to: "posts#home"
+  get "/", to: "users#new"
+  #post "/", to: "user#create"
+
   resources :posts do
     collection do
       post :confirm
     end
   end
-
 
   resources :users
   get "/favorites/:id", to: "users#favorites"

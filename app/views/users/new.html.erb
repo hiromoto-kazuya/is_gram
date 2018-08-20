@@ -1,33 +1,33 @@
-<h1>Sign up</h1>
+<h1>Is_gram</h1>
 
+<!--form_withのmodel: @userをurl指定に変えた-->
 <%= form_with(model: @user, local: true) do |f| %>
-
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-
-  <%= f.label :name %>
+<table>
+  <!--%= f.label :name %>-->
   <%= f.text_field :name %>
-
-  <%= f.label :email %>
+  <br>
+  <!--<%= f.label :email %>-->
   <%= f.email_field :email %>
+  <br>
+  <!--<%= f.label :image %>-->
+  <!--<%= f.file_field :image, id: :user_image %>-->
 
-  <%= f.label :image %>
-  <%= f.file_field :image, id: :user_image %>
-
-  <%= f.label :password %>
+  <!--<%= f.label :password %>-->
   <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
+  <br>
+  <!--<%= f.label :password_confirmation %>-->
   <%= f.password_field :password_confirmation %>
-
+  <br>
   <%= f.submit "Create my account" %>
+</table>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>

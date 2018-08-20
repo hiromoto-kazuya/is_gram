@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def new
+    if logged_in?
+      redirect_to posts_path
+    end
     @user = User.new
   end
 
@@ -11,7 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
     else
-      render'new'
+      render "new"
     end
   end
 
