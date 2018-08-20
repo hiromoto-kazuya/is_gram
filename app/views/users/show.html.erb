@@ -2,4 +2,5 @@
 <p>メールアドレス: <%= @user.email %></p>
 <p>アイコン: <%= image_tag @user.image %>
 
+<%= link_to "編集する", edit_user_path(@user.id) %>
 <%= link_to "お気に入り一覧", "/favorites/#{params[:id]}" %>

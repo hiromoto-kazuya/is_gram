@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new,:create,:show]
+  resources :users, only: [:new,:create,:show,:edit,:update]
   get "/favorites/:id", to: "users#favorites"
   resources :favorites, only: [:create, :destroy]
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
