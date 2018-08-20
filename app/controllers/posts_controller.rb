@@ -18,6 +18,14 @@ class PostsController < ApplicationController
   def confirm
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+
+    #画像リサイズ用に下記を追加
+    #if params[:image] != nil
+    #  image = MiniMagick::Image.read(params[:image])
+    #  image.resize "1080 x 1350"
+    #  image.write "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    #end
+
     render :new if @post.invalid?
   end
 
@@ -56,7 +64,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title,:content,:user_id)
+    params.require(:post).permit(:title,:content,:user_id,:image,:image_cache)
   end
 
   def set_post

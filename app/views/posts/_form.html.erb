@@ -11,14 +11,20 @@
     </div>
   <% end %>
 
-  <div class="post_title">
-    <%= form.label :title %>
+  <div class = "post_title">
+    <%= form.label :タイトル %>
     <%= form.text_field :title %>
   </div>
-  <div class="post_content">
-    <%= form.label :content %>
+  <div class = "post_content">
+    <%= form.label :内容 %>
     <%= form.text_field :content %>
   </div>
+  <div class = "post_image">
+    <%= form.label :image %>
+    <%= image_tag(@post.image.url) if @post.image.url %>
+    <%= form.file_field :image, id: :post_image %>
+  </div>
+
   <%= form.submit %>
 <% end %>
 <%= link_to'投稿一覧に戻る', posts_path %>

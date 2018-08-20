@@ -3,14 +3,16 @@
     <tr class = "row">
       <th class = "col-md-2">ユーザー</th>
       <th class = "col-md-3">タイトル</th>
-      <th class = "col-md-7">ブログ内容</th>
+      <th class = "col-md-3">内容</th>
+      <th class = "col-md-4">画像</th>
     </tr>
 
     <% @favorites.each do |favorite| %>
       <tr class = "row">
         <td class = "col-md-2"><%= favorite.post.user.name %></td>
         <td class = "col-md-3"><%= favorite.post.title %></td>
-        <td class = "col-md-7"><%= favorite.post.content %></td>
+        <td class = "col-md-3"><%= favorite.post.content %></td>
+        <td class = "col-md-4"><%= image_tag favorite.post.image %></td>
       </tr>
     <% end %>
   </table>
