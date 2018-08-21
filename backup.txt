@@ -1,0 +1,93 @@
+
+
+
+
+
+
+
+
+
+
+
+
+footer
+==============================
+body {
+  background-color: #fafafa;
+}
+
+/*ここからfooter*/
+footer {
+  width: 100%;
+}
+
+/*スマホ ~ タブレット*/
+@media screen and (min-width : 0px) and ( max-width:991px) {
+  .footer-menu {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  footer ul {
+    padding-left: 20px;
+    height: 75px;
+  }
+
+  footer li {
+    list-style: none;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 7px;
+  }
+
+  .footer-menu a {
+    color: #003569;
+  }
+
+  footer .copyright {
+    color: #999;
+    text-align: center;
+  }
+}
+
+
+/* PC以上 */
+@media screen and (min-width:992px) {
+
+  .footer-menu {
+    max-width: 935px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  footer ul {
+    padding-left: 0px;
+  }
+
+  footer li {
+    list-style: none;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 7px;
+  }
+
+  footer a {
+    color: #003569;
+  }
+
+  footer .copyright {
+    color: #999;
+    margin-left: 25px;
+    display: inline-block;
+  }
+}
+
+/*footer*/

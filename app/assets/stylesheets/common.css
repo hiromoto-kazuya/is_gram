@@ -2,55 +2,65 @@ body {
   background-color: #fafafa;
 }
 
-/*footer*/
-.footer-menu {
-  max-width: 950px;
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+/*-----------ここからfooter-----------*/
+footer {
+  width: 100%;
 }
 
-footer ul {
-  padding-left: 0px;
+.footer-menu {
+  margin: 0 auto;
+  margin-top: 50px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 footer li {
-  display: inline-block;
   list-style: none;
   float: left;
   margin-right: 15px;
   margin-bottom: 7px;
 }
 
-footer a {
+.footer-menu a {
   color: #003569;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: bold;
 }
 
 footer .copyright {
   color: #999;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: bolder;
-  margin-left: 30px;
-  display: inline-block;
 }
 
-@media (min-width: @screen-xs-min) and (max-width: @screen-sm-max) {
-  footer .footer-menu {
+/*スマホ ~ タブレット*/
+@media screen and (min-width : 0px) and ( max-width:991px) {
+  .footer-menu {
     width: 350px;
-    margin: 0 auto;
+  }
+
+  footer ul {
+    padding-left: 20px;
+    height: 75px;
   }
 
   footer .copyright {
-    color: red;
+    text-align: center;
   }
 }
 
-@media (min-width: @screen-md-min) {
+/* PC以上 */
+@media screen and (min-width:992px) {
 
+  .footer-menu {
+    max-width: 935px;
+    margin-bottom: 50px;
+  }
+
+  footer ul {
+    padding-left: 0px;
+  }
+
+  footer .copyright {
+    margin-left: 25px;
+    display: inline-block;
+  }
 }
-
-/*footer*/
+/*-----------footerここまで-----------*/
