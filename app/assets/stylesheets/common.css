@@ -2,6 +2,10 @@ body {
   background-color: #fafafa;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 /*-----------ここからfooter-----------*/
 footer {
   width: 100%;

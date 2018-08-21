@@ -27,7 +27,7 @@
           <%= f.password_field :password_confirmation, class: "form-control",
                                 placeholder: "確認パスワード"%>
         </div>
-        <%= f.submit "登録する", class: "btn submit" %>
+        <%= f.submit "登録する", class: "btn submit-btn" %>
 
         <% if @user.errors.any? %>
           <div id="error_explanation" class = "error_explanation">
