@@ -1,9 +1,6 @@
 <div class = "form-wrapper">
   <div class = "form-container">
     <h1 class ="logo">Clonegram</h1>
-
-
-
     <div class="form-inline">
       <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
@@ -25,6 +22,11 @@
         </div>
 
         <%= link_to "Facebookでログイン", ("#"), class: "facebook-login" %>
+
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+
         <%= link_to "パスワードを忘れた場合", ("#"), class: "for_forget_password" %>
 
       <% end %>
@@ -33,5 +35,8 @@
 </div>
 
 <div class = "login_link">
-  <div class = "login" >アカウントをお持ちでないですか？<%= link_to "登録する", new_user_path %></div>
+  <div class = "login" >
+    アカウントをお持ちでないですか？
+    <%= link_to "登録する", new_user_path %>
+  </div>
 </div>

@@ -13,13 +13,22 @@
       <% if current_page?(new_user_path) || current_page?("/") || current_page?(new_session_path) %>
 
       <% elsif logged_in? %>
-        <%= link_to "プロフィール", user_path(current_user.id) %>
-        <%= link_to "投稿一覧", posts_path %>
-        <%= link_to "投稿する", new_post_path %>
-        <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-      <% else %>
-        <%= link_to "ユーザー登録", new_user_path %>
-        <%= link_to "ログイン", new_session_path %>
+        <%= link_to posts_path do %>
+          <%= image_tag "camera.png", size:( 6 * 6 ), class: "logo-image" %>
+        <% end %>
+
+        <%= link_to user_path(current_user.id) do %>
+          <%= image_tag "person.png", size:( 5 * 5 ), class: "profile-image" %>
+        <% end %>
+
+        <%= link_to users_path do %>
+          <%= image_tag "search.png", size:( 5 * 5 ), class: "search-image" %>
+        <% end %>
+
+        <%= link_to new_post_path do %>
+          <%= image_tag "post.png", size:( 5 * 5 ), class: "post-image" %>
+        <% end %>
+
       <% end %>
     </header>
 

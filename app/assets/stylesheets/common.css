@@ -6,6 +6,10 @@ a:hover {
   text-decoration: none;
 }
 
+.danger {
+  color: red;
+}
+
 /*-----------ここからfooter-----------*/
 footer {
   width: 100%;

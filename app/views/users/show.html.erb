@@ -3,3 +3,4 @@
 <p>アイコン: <%= image_tag @user.image %>
 <%= link_to "編集する", edit_user_path(@user.id) %>
 <%= link_to "お気に入り一覧", "/favorites/#{params[:id]}" %>
+<%= link_to "ログアウト", session_path(current_user.id), method: :delete %>

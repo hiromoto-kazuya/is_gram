@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :check_user_login_status, only:[:index, :new, :edit, :show, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.where(user_id: current_user.following )
   end
 
   def new
