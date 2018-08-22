@@ -1,5 +1,9 @@
 body {
   background-color: #fafafa;
+  position: relative;
+}
+li {
+  list-style: none;
 }
 
 a:hover {
@@ -10,6 +14,117 @@ a:hover {
   color: red;
 }
 
+/*-----------ここからheader-----------*/
+.header-wrapper {
+  height: 75px;
+  background-color: white;
+  border-bottom: 1px solid rgba(0,0,0,.0975);
+}
+
+.header-left li {
+  float:left;
+}
+
+.row {
+  height:75px;
+  line-height: 68px;
+  margin: 0 auto;
+}
+
+.header-image {
+  max-width: 20px;
+  height: auto;
+}
+
+.length-line {
+  height: 30px;
+  width: 1px;
+  background-color: gray;
+  margin-left: 25px;
+  margin-top: 20px;
+}
+
+.header-title {
+  font-family: "Brush Script MT";
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+.menu-icon {
+  right: 0px;
+  margin-left: 27px;
+}
+
+.header-right li {
+  float: right;
+}
+
+@media screen and (min-width : 0px) and ( max-width:768px) {
+  .row {
+    padding-left: 0px;
+  }
+
+  .header-logo {
+    max-width: 25px;
+    height: auto;
+  }
+
+  .header-title {
+    font-family: "Brush Script MT";
+    font-size: 25px;
+    margin-left: 10px;
+  }
+
+  .length-line {
+    margin-left: 15px;
+  }
+
+  .menu-icon {
+    right: 0px;
+    margin-left: 20px;
+  }
+
+}
+
+@media screen and (min-width : 769px) and ( max-width:991px) {
+  .row {
+    padding-left: 0px;
+  }
+
+  .header-logo {
+    max-width: 33px;
+    height: auto;
+  }
+
+}
+
+@media screen and (min-width: 992px) {
+  .row {
+    padding: 0px 80px;
+  }
+
+  .header-logo {
+    max-width: 33px;
+    height: auto;
+  }
+
+  .header-image {
+    max-width: 23px;
+    height: auto;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+/*-----------headerここまで-----------*/
 /*-----------ここからfooter-----------*/
 footer {
   width: 100%;
@@ -24,7 +139,6 @@ footer {
 }
 
 footer li {
-  list-style: none;
   float: left;
   margin-right: 15px;
   margin-bottom: 7px;

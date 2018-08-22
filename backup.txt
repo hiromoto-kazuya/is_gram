@@ -1,3 +1,118 @@
+header htmlとcssのbackup
+レスポンシブ未対応なので一回下げてbootstrap試す
+
+<header>
+    <% if current_page?(new_user_path) || current_page?("/") || current_page?(new_session_path) %>
+    <% elsif logged_in? %>
+    <div class = "header-wrapper">
+      <div class = "header-left">
+        <ul>
+          <li>
+            <%= link_to posts_path do %>
+              <%= image_tag "camera.png", size:( 7 * 6 ), class: "logo-image" %>
+            <% end %>
+          </li>
+          <li>
+            <div class = "length-line"></div>
+          </li>
+          <li>
+            <h1 class ="header-title">Clonegram</h1>
+          </li>
+        </ul>
+      </div>
+      <div  class = "header-right">
+        <ul>
+          <li class = "icon">
+            <%= link_to users_path do %>
+              <%= image_tag "search.png", size:( 5 * 5 ), class: "search-image" %>
+            <% end %>
+          </li>
+          <li class = "icon">
+            <%= link_to "/favorites/#{current_user.id}" do %>
+              <%= image_tag "heart.png", size:( 5 * 5 ), class: "favorite-image" %>
+            <% end %>
+          </li>
+          <li class = "icon">
+            <%= link_to user_path(current_user.id) do %>
+              <%= image_tag "person.png", size:( 5 * 5 ), class: "profile-image" %>
+            <% end %>
+          </li>
+          <li class = "right-icon">
+            <%= link_to new_post_path do %>
+              <%= image_tag "post.png", size:( 5 * 5 ), class: "post-image" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</header>
+
+.header-wrapper {
+  height: 75px;
+  background-color: white;
+  border-bottom: 1px solid rgba(0,0,0,.0975);
+  position:relative;
+}
+
+.header-wrapper li {
+  float:left;
+}
+
+.header-left {
+  position: absolute;
+}
+
+.header-left {
+  line-height: 68px;
+}
+
+.logo-image {
+  margin-left: 43px;
+}
+
+.length-line {
+  height: 37px;
+  width: 1px;
+  background-color: gray;
+  margin-left: 25px;
+  display: inline-block;
+  margin-top: 18px;
+}
+
+.header-title {
+  font-family: "Brush Script MT";
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+.header-right {
+  position: absolute;
+  float:right;
+  right:0px;
+  line-height: 75px;
+}
+
+.icon {
+  margin-right: 35px;
+}
+
+.right-icon {
+  margin-right: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+====================================
+
 sessions/new.html.erb
 
 <h1>Log in</h1>

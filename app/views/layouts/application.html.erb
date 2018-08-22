@@ -11,25 +11,54 @@
   <body>
     <header>
       <% if current_page?(new_user_path) || current_page?("/") || current_page?(new_session_path) %>
-
       <% elsif logged_in? %>
-        <%= link_to posts_path do %>
-          <%= image_tag "camera.png", size:( 6 * 6 ), class: "logo-image" %>
-        <% end %>
+        <div class = "header-wrapper">
+          <div class = "container">
 
-        <%= link_to user_path(current_user.id) do %>
-          <%= image_tag "person.png", size:( 5 * 5 ), class: "profile-image" %>
-        <% end %>
+            <ul class = "row">
+              <div class ="header-left col-xs-6 col-sm-6 col-md-6">
+                <li>
+                  <%= link_to posts_path do %>
+                    <%= image_tag "camera.png", class: "header-logo" %>
+                  <% end %>
+                </li>
+                <li>
+                  <div class = "length-line"></div>
+                </li>
+                <li>
+                  <h1 class ="header-title">Clonegram</h1>
+                </li>
+              </div>
 
-        <%= link_to users_path do %>
-          <%= image_tag "search.png", size:( 5 * 5 ), class: "search-image" %>
-        <% end %>
+              <div class = "header-right col-xs-6 col-sm-6 col-md-6">
+                <li class = "menu-icon">
+                  <%= link_to new_post_path do %>
+                    <%= image_tag "post.png", class: "header-image" %>
+                  <% end %>
+                </li>
+                <li class = "menu-icon">
+                  <%= link_to user_path(current_user.id) do %>
+                    <%= image_tag "person.png", class: "header-image" %>
+                  <% end %>
+                </li>
+                <li class = "menu-icon">
+                  <%= link_to "/favorites/#{current_user.id}" do %>
+                    <%= image_tag "heart.png", class: "header-image" %>
+                  <% end %>
+                </li>
+                <li class = "menu-icon">
+                  <%= link_to users_path do %>
+                    <%= image_tag "search.png", class: "header-image" %>
+                  <% end %>
+                </li>
 
-        <%= link_to new_post_path do %>
-          <%= image_tag "post.png", size:( 5 * 5 ), class: "post-image" %>
-        <% end %>
+              </div>
+            </ul>
 
+          </div>
+        </div>
       <% end %>
+
     </header>
 
     <%= yield %>
