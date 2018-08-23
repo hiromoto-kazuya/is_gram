@@ -14,6 +14,12 @@ a:hover {
   color: red;
 }
 
+.profile_image {
+  
+}
+
+
+
 /*-----------ここからheader-----------*/
 .header-wrapper {
   height: 75px;
@@ -112,17 +118,7 @@ a:hover {
     max-width: 23px;
     height: auto;
   }
-
 }
-
-
-
-
-
-
-
-
-
 
 /*-----------headerここまで-----------*/
 /*-----------ここからfooter-----------*/
