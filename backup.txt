@@ -1,4 +1,31 @@
 =================================
+
+<div class =  "container">
+  <div class =  "profile row">
+    <div class = "user-image col-xs-4 col-md-4">
+      <%= image_tag @user.image, :size => "130x130", class: "account-image" %>
+    </div>
+
+    <div class = "user-info col-xs-8 col-md-8">
+      <h1 class = "user-name"><%= @user.name %></h1>
+      <div class = "post-and-follow-info">
+        <div class = "info">投稿<%= @user.posts.count %>件</div>
+        <div class = "info">フォロワー<%= @user.followers.count %>人</div>
+        <div class = "info"><%= @user.following.count %>人をフォロー中</div>
+      </div>
+      <% if @user == current_user %>
+        <%= link_to "編集する", edit_user_path(@user.id), class: 'edit-btn btn-primary' %>
+        <%= link_to "ログアウト", session_path(current_user.id), method: :delete, class: 'edit-btn btn-primary' %>
+      <% end %>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+=================================
 8/24 18:00　投稿一覧の条件分岐作る前
 
 <!--<p><%= notice %></p> -->

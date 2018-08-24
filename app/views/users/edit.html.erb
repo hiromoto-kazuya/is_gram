@@ -1,29 +1,32 @@
-<h1>アカウント編集</h1>
+<h1 class ="post_page_title">アカウント編集</h1>
+<div class = "post-wrapper">
+  <div class = "post-container">
+    <%= form_with(model: @user, local: true) do |f| %>
 
-<%= form_with(model: @user, local: true) do |f| %>
-
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% if @user.errors.any? %>
+        <div id="error_explanation" class = "error_explanation">
+          <% @user.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <br>
-  <%= f.label :image %>
-  <%= f.file_field :image, id: :user_image %>
-  <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
-  <%= f.submit "Create my account" %>
-<% end %>
+      <div class = "form-group">
+        <%= f.text_field :name, class: "form-control",
+                          placeholder: "ユーザーネーム" %>
+      </div>
+      <div class = "form-group">
+        <%= f.email_field :email, class: "form-control",
+                          placeholder: "メールアドレス" %>
+      </div>
+      <div class = "form-group">
+        <%= f.file_field :image, id: :user_image %>
+      </div>
+      <div class = "form-group">
+        <%= f.password_field :password, class: "form-control",
+                              placeholder: "パスワード(6文字以上)" %>
+      </div>
+      <%= f.submit "編集する", class: "btn submit-btn" %>
+    <% end %>
+  </div>
+</div>

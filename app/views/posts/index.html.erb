@@ -6,7 +6,9 @@
     <div class = "article">
       <div class ="article-header">
         <div class = "article-header-contetns">
-          <%= image_tag post.user.image, :size => "30x30", class: "account-image" %>
+          <%= link_to "users/#{post.user.id}" do %>
+            <%= image_tag post.user.image, :size => "30x30", class: "account-image" %>
+          <% end %>
           <div class = "text">
             <%= link_to post.user.name, "users/#{post.user_id}", class: "user-name-link" %>
           </div>

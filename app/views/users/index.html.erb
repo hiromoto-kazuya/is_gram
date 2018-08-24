@@ -1,11 +1,26 @@
-<h1 class ="post_page_title">ユーザーをフォローする</h1>
+<h1 class ="post_page_title">フォローするユーザーをさがす</h1>
 
-<div class ="container follow-page">
-
-    <% @users.each do |user| %>
-      <%= user.name %>
-      <%= user.email %>
-      <%= render 'follow_form', user: user %>
+  <% @users.each do |user| %>
+    <% if user != current_user %>
+      <div class ="container">
+        <div class = "follow-page row">
+          <div class = "user-image col-xs-4 col-md-4">
+            <%= link_to "users/#{user.id}" do %>
+              <%= image_tag user.image, :size => "130x130", class: "account-image" %>
+            <% end %>
+          </div>
+          <div class = "user-info col-xs-8 col-md-8">
+            <h1 class = "user-name">
+              <%= link_to user.name, "users/#{user.id}", class: "user-name-link" %>
+            </h1>
+            <div class = "post-and-follow-info">
+              <div class = "info">投稿<%= user.posts.count %>件</div>
+              <div class = "info">フォロワー<%= user.followers.count %>人</div>
+              <div class = "info"><%= user.following.count %>人をフォロー中</div>
+            </div>
+            <%= render 'follow_form', user: user %>
+          </div>
+        </div>
+      </div>
     <% end %>
-
-</div>
+  <% end %>

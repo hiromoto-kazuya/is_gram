@@ -9,4 +9,13 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
+
+  def check_current_user
+    @current_user = User.find_by(id: session[:user_id])
+    
+    if @current_user != @user
+      flash[:notice] = "権限がありません"
+      redirect_to posts_path
+    end
+  end
 end

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :check_current_user, only: [:edit, :update]
 
   def index
     @users = User.all
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_posts = Post.where(user_id: @user)
   end
 
   def edit

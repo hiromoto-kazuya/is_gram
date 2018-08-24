@@ -5,7 +5,7 @@
           <div class = "favorites-header-contetns">
             <%= image_tag favorite.post.user.image, :size => "30x30", class: "account-image" %>
             <div class = "text">
-              <%= favorite.post.user.name %>
+              <%= link_to favorite.post.user.name, "/users/#{favorite.post.user_id}", class: "user-name-link" %>
             </div>
           </div>
         </div>
