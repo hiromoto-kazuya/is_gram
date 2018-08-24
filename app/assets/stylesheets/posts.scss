@@ -1,3 +1,4 @@
+
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -53,6 +54,100 @@
   font-weight: bold;
 }
 
+.article-content-second {
+  margin-bottom: 15px;
+}
+
 .content-user-name {
   margin-left: 15px;
+}
+
+/* ============以下、新規投稿============ */
+
+.post_page_title {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.post-wrapper {
+  width: 350px;
+  height: 100%;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.post-container {
+  text-align: center;
+  padding: 0px 40px;
+}
+
+.post-wrapper form {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  background-color: #3897f0;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.post-container .submit-btn {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.error_explanation {
+  margin: 10px 0px;
+  color: red;
+}
+
+.back-to-index {
+  margin-top: 10px;
+}
+
+.detail-text {
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.detail-content {
+  margin-top: 10px;
+}
+
+.detail-menu {
+  margin-left: 15px;
+}
+
+.back-link {
+  margin:10px 0px;
+}
+
+.confirm-wrapper {
+  width: 350px;
+  height: 100%;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.confirm-container {
+  text-align: center;
+  padding: 0px 40px;
+}
+
+.confirm-wrapper form {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

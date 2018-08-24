@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def favorites
     @user = User.find(params[:id])
     if @user.favorites
-      @favorites = Favorite.where(user_id: session[:user_id])
+      @favorites = Favorite.where(user_id: session[:user_id]).order(created_at: :desc)
     end
   end
 

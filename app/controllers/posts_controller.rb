@@ -3,10 +3,7 @@ class PostsController < ApplicationController
   before_action :check_user_login_status, only:[:index, :new, :edit, :show, :destroy]
 
   def index
-    @posts = Post.where(user_id: current_user.following )
-    @posts.each do |post|
-      @favorite = current_user.favorites.find_by(post_id: post.id)
-    end
+    @posts = Post.where(user_id: current_user.following ).order(created_at: :desc)
   end
 
   def new

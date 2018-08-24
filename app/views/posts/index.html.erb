@@ -18,15 +18,18 @@
 
     <div class = "article-content">
       <div class ="article-content-first">
+        <% @favorite = current_user.favorites.find_by(post_id: post.id) %>
         <% if @favorite.present? %>
           <%= link_to favorite_path(id: @favorite.id), method: :delete do %>
             <%= image_tag "color-heart.png", class: "favorite-heart unfavorite-btn" %>
           <% end %>
         <% else %>
+
           <%= link_to favorites_path(post_id: post), method: :post do %>
             <%= image_tag "non-color-heart.png", class: "favorite-heart favorite-btn" %>
           <% end %>
         <% end %>
+
       </div>
       <div class = "like-count">
         いいね！<%= post.favorites.count %>件

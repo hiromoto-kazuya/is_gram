@@ -1,3 +1,94 @@
+
+===========================
+
+<h3 class = "post_page_title">以下の内容で、送信する。</h3>
+
+<%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+
+  <p>タイトル:<%= @post.title %></p>
+  <p>本文:<%= @post.content %></p>
+  <p><%= image_tag @post.image %></p>
+  <%= form.submit  "送信する" %>
+<% end %>
+
+<%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "もどる", name: 'back' %>
+<% end %>
+
+
+============================
+
+<!--念のため取っておく<% if @favorite.present? %>
+  <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+<% else %>
+  <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+<% end %>-->
+
+
+
+
+============================
+posts/_form.html.erbいじる前
+
+<%= form_with(model: @post, local: true, url: choose_new_or_edit ) do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @post.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "post_title">
+    <%= form.label :タイトル %>
+    <%= form.text_field :title %>
+  </div>
+  <div class = "post_content">
+    <%= form.label :内容 %>
+    <%= form.text_field :content %>
+  </div>
+  <div class = "post_image">
+    <%= form.label :image %>
+    <%= image_tag(@post.image.url) if @post.image.url %>
+    <%= form.file_field :image, id: :post_image %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+<%= link_to'投稿一覧に戻る', posts_path %>
+
+
+
+
+
+
+<% if logged_in? %>
+  <%= link_to "プロフィール", user_path(current_user.id) %>
+  <%= link_to "投稿一覧", posts_path %>
+  <%= link_to "投稿する", new_post_path %>
+  <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+<% else %>
+  <%= link_to "ユーザー登録", new_user_path %>
+  <%= link_to "ログイン", new_session_path %>
+<% end %>
+
+
+
+
+=========================
+
+
+
 <% if @favorite.present? %>
   <%= link_to "favorite_path(id: @favorite.id)", method: :delete do %>
     <%= image_tag "heart.png", class: "header-image unfavorite-btn" %>
