@@ -2,44 +2,47 @@
 <div class = "post-index-top-space"></div>
 
 <% @posts.each do |post| %>
-  <div class = "article">
-    <div class ="article-header">
-      <div class = "article-header-contetns">
-        <%= image_tag post.user.image, class: "profile_image for_index" %>
-        <div class = "text">
-          <%= post.user.name %>
+
+    <div class = "article">
+      <div class ="article-header">
+        <div class = "article-header-contetns">
+          <%= image_tag post.user.image, :size => "30x30", class: "account-image" %>
+          <div class = "text">
+            <%= link_to post.user.name, "users/#{post.user_id}", class: "user-name-link" %>
+          </div>
+          <%= link_to '・・・', post_path(post.id), class: "detail" %>
         </div>
-        <%= link_to '・・・', post_path(post.id), class: "detail" %>
       </div>
-    </div>
-    <div class = "article-image">
-      <%= image_tag post.image %>
-    </div>
+      <div class = "article-image">
+        <%= image_tag post.image %>
+      </div>
 
-    <div class = "article-content">
-      <div class ="article-content-first">
-        <% @favorite = current_user.favorites.find_by(post_id: post.id) %>
-        <% if @favorite.present? %>
-          <%= link_to favorite_path(id: @favorite.id), method: :delete do %>
-            <%= image_tag "color-heart.png", class: "favorite-heart unfavorite-btn" %>
+      <div class = "article-content">
+        <div class ="article-content-first">
+          <% @favorite = current_user.favorites.find_by(post_id: post.id) %>
+          <% if @favorite.present? %>
+            <%= link_to favorite_path(id: @favorite.id), method: :delete do %>
+              <%= image_tag "color-heart.png", class: "favorite-heart unfavorite-btn" %>
+            <% end %>
+          <% else %>
+
+            <%= link_to favorites_path(post_id: post), method: :post do %>
+              <%= image_tag "non-color-heart.png", class: "favorite-heart favorite-btn" %>
+            <% end %>
           <% end %>
-        <% else %>
 
-          <%= link_to favorites_path(post_id: post), method: :post do %>
-            <%= image_tag "non-color-heart.png", class: "favorite-heart favorite-btn" %>
-          <% end %>
-        <% end %>
-
-      </div>
-      <div class = "like-count">
-        いいね！<%= post.favorites.count %>件
-      </div>
-      <div class = "article-content-second">
-        <div class = "text content-user-name">
-          <%= post.user.name %>
         </div>
-        <%= post.content %>
+        <div class = "like-count">
+          いいね！<%= post.favorites.count %>件
+        </div>
+        <div class = "article-content-second">
+          <div class = "text content-user-name">
+            <%= post.user.name %>
+          </div>
+          <%= post.content %>
+        </div>
       </div>
     </div>
-  </div>
+
+
 <% end %>

@@ -5,6 +5,14 @@
 
 
 /*投稿一覧画面*/
+.user-name-link {
+  color: black;
+  margin-left: 10px;
+}
+
+.user-name-link:hover {
+  color: black;
+}
 
 .post-index-top-space {
   margin-top: 50px;
@@ -20,15 +28,11 @@
 }
 
 .article-header {
-  height: 50px;
+  height: 60px;
 }
 
 .article-header-contetns {
-  margin-top: 15px;
-}
-
-.profile_image {
-  width: 60px;
+  padding: 15px;
 }
 
 .detail {

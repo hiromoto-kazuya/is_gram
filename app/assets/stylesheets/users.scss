@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
 //new.html.erb
 .form-wrapper {
   width: 350px;
@@ -129,4 +127,81 @@
 
 .login a {
   margin-left: 5px;
+}
+
+
+/*------お気入り一覧-------*/
+
+
+.favorites-index-wrapper {
+  height: 100%;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  width: 600px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.favorites-header {
+  height: 60px;
+}
+
+.favorites-header-contetns {
+  padding: 15px;
+}
+
+.favorites-content {
+  margin: 15px 0px;
+}
+
+.content-user-name {
+  margin-left: 15px;
+}
+
+
+
+/*----------ユーザー詳細---------- */
+.container .profile {
+  height: 150px;
+  margin: 30px 0px;
+  line-height: 40px;
+}
+
+.user-image {
+  text-align: center;
+}
+
+.account-image {
+  border-radius: 100px;
+}
+
+@media screen and (min-width : 0px) and ( max-width:768px) {
+  .account-image {
+    border-radius: 150px;
+  }
+}
+
+.name-and-link {
+  margin-bottom: 20px;
+}
+
+.user-name {
+  font-size: 32px;
+}
+
+.info {
+  font-size: 16px;
+  display:inline;
+  margin-right: 15px;
+}
+
+.edit-btn {
+  padding: 6px;
+  background-color: #3897f0;
+  margin-right: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #3897f0;
+  color: white;
 }

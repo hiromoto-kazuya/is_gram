@@ -1,20 +1,22 @@
-<h3>お気に入り一覧</h3>
-  <table>
-    <tr class = "row">
-      <th class = "col-md-2">ユーザー</th>
-      <th class = "col-md-3">タイトル</th>
-      <th class = "col-md-3">内容</th>
-      <th class = "col-md-4">画像</th>
-    </tr>
-
+<h3 class = "post_page_title">お気に入り一覧</h3>
     <% @favorites.each do |favorite| %>
-      <tr class = "row">
-        <td class = "col-md-2"><%= favorite.post.user.name %></td>
-        <td class = "col-md-3"><%= favorite.post.title %></td>
-        <td class = "col-md-3"><%= favorite.post.content %></td>
-        <td class = "col-md-4"><%= image_tag favorite.post.image %></td>
-      </tr>
-    <% end %>
+      <div class = "favorites-index-wrapper">
+        <div class ="favorites-header">
+          <div class = "favorites-header-contetns">
+            <%= image_tag favorite.post.user.image, :size => "30x30", class: "account-image" %>
+            <div class = "text">
+              <%= favorite.post.user.name %>
+            </div>
+          </div>
+        </div>
 
-  </table>
-</div>
+        <%= image_tag favorite.post.image %>
+
+        <div class = "favorites-content">
+          <div class = "text content-user-name">
+            <%= favorite.post.user.name %>
+          </div>
+          <%= favorite.post.content %>
+        </div>
+      </div>
+    <% end %>

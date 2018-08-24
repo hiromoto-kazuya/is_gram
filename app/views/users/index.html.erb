@@ -1,6 +1,11 @@
-<h2>ユーザー</h2>
-  <% @users.each do |user| %>
-    <%= user.name %>
-    <%= user.email %>
-    <%= render 'follow_form', user: user %>
-  <% end %>
+<h1 class ="post_page_title">ユーザーをフォローする</h1>
+
+<div class ="container follow-page">
+
+    <% @users.each do |user| %>
+      <%= user.name %>
+      <%= user.email %>
+      <%= render 'follow_form', user: user %>
+    <% end %>
+
+</div>
