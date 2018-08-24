@@ -2,6 +2,7 @@ body {
   background-color: #fafafa;
   position: relative;
 }
+
 li {
   list-style: none;
 }
@@ -13,11 +14,6 @@ a:hover {
 .danger {
   color: red;
 }
-
-.profile_image {
-  
-}
-
 
 
 /*-----------ここからheader-----------*/

@@ -4,6 +4,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.where(user_id: current_user.following )
+    @posts.each do |post|
+      @favorite = current_user.favorites.find_by(post_id: post.id)
+    end
   end
 
   def new
@@ -26,7 +29,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-    #mailer機能止めとく  PostMailer.post_mail(@post).deliver
+    PostMailer.post_mail(@post).deliver
       redirect_to posts_path, notice: "投稿が完了しました"
     else
       render'new'

@@ -1,25 +1,42 @@
-<h1>投稿一覧</h1>
-
-<p><%= notice %></p>
-
-<table>
-  <tr>
-    <th>ユーザー名</th>
-    <th>アカウント画像</th>
-    <th>タイトル</th>
-    <th>内容</th>
-    <th>画像</th>
-  </tr>
+<!--<p><%= notice %></p> -->
+<div class = "post-index-top-space"></div>
 
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.user.name %></td>
-    <td><%= image_tag post.user.image, class: "profile_image for_index" %></td>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
-    <td><%= image_tag post.image %></td>
-    <td><%= link_to '詳細を見る', post_path(post.id) %></td>
+  <div class = "article">
+    <div class ="article-header">
+      <div class = "article-header-contetns">
+        <%= image_tag post.user.image, class: "profile_image for_index" %>
+        <div class = "text">
+          <%= post.user.name %>
+        </div>
+        <%= link_to '・・・', post_path(post.id), class: "detail" %>
+      </div>
+    </div>
+    <div class = "article-image">
+      <%= image_tag post.image %>
+    </div>
 
-  </tr>
+    <div class = "article-content">
+      <div class ="article-content-first">
+        <% if @favorite.present? %>
+          <%= link_to favorite_path(id: @favorite.id), method: :delete do %>
+            <%= image_tag "color-heart.png", class: "favorite-heart unfavorite-btn" %>
+          <% end %>
+        <% else %>
+          <%= link_to favorites_path(post_id: post), method: :post do %>
+            <%= image_tag "non-color-heart.png", class: "favorite-heart favorite-btn" %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class = "like-count">
+        いいね！<%= post.favorites.count %>件
+      </div>
+      <div class = "article-content-second">
+        <div class = "text content-user-name">
+          <%= post.user.name %>
+        </div>
+        <%= post.content %>
+      </div>
+    </div>
+  </div>
 <% end %>
-</table>

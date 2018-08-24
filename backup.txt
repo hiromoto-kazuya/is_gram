@@ -1,3 +1,52 @@
+<% if @favorite.present? %>
+  <%= link_to "favorite_path(id: @favorite.id)", method: :delete do %>
+    <%= image_tag "heart.png", class: "header-image unfavorite-btn" %>
+  <% end %>
+<% else %>
+  <%= link_to "favorites_path(post_id:@post.id)", method: :post do %>
+    <%= image_tag "heart.png", class: "header-image favorite-btn" %>
+  <% end %>
+<% end %>
+
+===========================
+投稿一覧のデザイン追加前
+
+
+<table>
+
+<% @posts.each do |post| %>
+  <div class = "article">
+    <div class ="article-header">
+      <%= image_tag post.user.image, class: "profile_image for_index" %>
+    </div>
+
+    <tr>
+      <th>ユーザー名</th>
+      <th>アカウント画像</th>
+      <th>タイトル</th>
+      <th>内容</th>
+      <th>画像</th>
+    </tr>
+    <tr>
+      <td><%= post.user.name %></td>
+      <td><%= image_tag post.user.image, class: "profile_image for_index" %></td>
+      <td><%= post.title %></td>
+      <td><%= post.content %></td>
+      <td><%= image_tag post.image %></td>
+      <td><%= link_to '詳細を見る', post_path(post.id) %></td>
+    </tr>
+  </div>
+<% end %>
+</table>
+
+
+
+
+
+
+
+=============================
+
 header htmlとcssのbackup
 レスポンシブ未対応なので一回下げてbootstrap試す
 
