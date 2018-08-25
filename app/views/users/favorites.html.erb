@@ -1,22 +1,26 @@
 <h3 class = "post_page_title">お気に入り一覧</h3>
-    <% @favorites.each do |favorite| %>
-      <div class = "favorites-index-wrapper">
-        <div class ="favorites-header">
-          <div class = "favorites-header-contetns">
-            <%= image_tag favorite.post.user.image, :size => "30x30", class: "account-image" %>
-            <div class = "text">
-              <%= link_to favorite.post.user.name, "/users/#{favorite.post.user_id}", class: "user-name-link" %>
-            </div>
+<% if current_user.favorites.present? %>
+  <% @favorites.each do |favorite| %>
+    <div class = "favorites-index-wrapper">
+      <div class ="favorites-header">
+        <div class = "favorites-header-contetns">
+          <%= image_tag favorite.post.user.image, :size => "30x30", class: "account-image" %>
+          <div class = "text">
+            <%= link_to favorite.post.user.name, "/users/#{favorite.post.user_id}", class: "user-name-link" %>
           </div>
-        </div>
-
-        <%= image_tag favorite.post.image %>
-
-        <div class = "favorites-content">
-          <div class = "text content-user-name">
-            <%= favorite.post.user.name %>
-          </div>
-          <%= favorite.post.content %>
         </div>
       </div>
-    <% end %>
+
+      <%= image_tag favorite.post.image %>
+
+      <div class = "favorites-content">
+        <div class = "text content-user-name">
+          <%= favorite.post.user.name %>
+        </div>
+        <%= favorite.post.content %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <h3 class = "post_page_title">まだお気に入りした投稿がありません</h3>
+<% end %>
