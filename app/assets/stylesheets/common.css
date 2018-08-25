@@ -61,6 +61,15 @@ a:hover {
   float: right;
 }
 
+.header-wrapper a {
+  color: black;
+}
+
+.header-wrapper a:hover {
+  text-decoration: none;
+  color: black;
+}
+
 @media screen and (min-width : 0px) and ( max-width:768px) {
   .row {
     padding-left: 0px;
