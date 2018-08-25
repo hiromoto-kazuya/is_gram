@@ -21,3 +21,5 @@
 backup.txt
 
 uploads/
+
+.env
