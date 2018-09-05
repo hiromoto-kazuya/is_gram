@@ -22,4 +22,5 @@ backup.txt
 
 uploads/
 
+#dotenv-rails
 .env
