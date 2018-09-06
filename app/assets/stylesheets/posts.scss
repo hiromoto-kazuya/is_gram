@@ -15,7 +15,7 @@
 }
 
 .post-index-top-space {
-  margin-top: 50px;
+  margin-top: 120px;
 }
 
 .article {
@@ -62,12 +62,25 @@
   font-weight: bold;
 }
 
+.article-content-second {
+  margin-bottom: 5px;
+}
+
 .content-user-name {
   margin-left: 15px;
 }
 
 .comments_area ul {
   padding-left: 15px;
+}
+
+.comments-btn {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+    background-color: darkgray;
 }
 
 /* ============以下、新規投稿============ */

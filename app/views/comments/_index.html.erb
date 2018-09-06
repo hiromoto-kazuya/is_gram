@@ -3,7 +3,9 @@
     <% if comment.id.present? %>
       <li>
         <div>
-          <%= post.user.name %>
+          <div class = "text ">
+            <%= post.user.name %>
+          </div>
           <%= comment.content %>
         </div>
       </li>

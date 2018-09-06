@@ -1,4 +1,124 @@
+コメント機能フロント改善前＝＝＝＝
 
+<%= form_with(model: [post, comment]) do |form| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'コメントする' %>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+＝＝＝＝AJax追加前＝＝＝
+favotrites_controller
+
+
+class FavoritesController < ApplicationController
+  def create
+    favorite = current_user.favorites.create(post_id: params[:post_id])
+    redirect_to posts_url, notice: "#{favorite.post.user.name}の投稿をお気に入りしました"
+  end
+
+  def destroy
+    favorite = current_user.favorites.find_by(id: params[:id]).destroy
+    redirect_to posts_url, notice: "#{favorite.post.user.name}の投稿をお気に入り解除しました"
+  end
+end
+
+
+class FavoritesController < ApplicationController
+  def create
+    favorite = current_user.favorites.create(post_id: params[:post_id])
+    respond_to do |format|
+      if favorite.save
+        format.js { render :ajax }
+      else
+        format.html { redirect_to posts_url, notice: "お気に入りに失敗しました"}
+      end
+    end
+  ends
+
+----------------------------
+_index_result.html
+
+
+<div class="posts">
+  <% @posts.each do |post| %>
+
+    <div class = "article">
+      <div class ="article-header">
+        <div class = "article-header-contetns">
+          <%= link_to "users/#{post.user.id}" do %>
+            <%= image_tag post.user.image, :size => "30x30", class: "account-image" %>
+          <% end %>
+          <div class = "text">
+            <%= link_to post.user.name, "users/#{post.user_id}", class: "user-name-link" %>
+          </div>
+          <%= link_to '・・・', post_path(post.id), class: "detail" %>
+        </div>
+      </div>
+      <div class = "article-image">
+        <%= image_tag post.image %>
+      </div>
+
+      <div class = "article-content">
+        <div class ="article-content-first">
+          <% @favorite = current_user.favorites.find_by(post_id: post.id) %>
+          <% if @favorite.present? %>
+            <%= link_to favorite_path(id: @favorite.id), method: :delete do %>
+              <%= image_tag "color-heart.png", class: "favorite-heart unfavorite-btn" %>
+            <% end %>
+          <% else %>
+            <%= link_to favorites_path(post_id: post), method: :post do %>
+              <%= image_tag "non-color-heart.png", class: "favorite-heart favorite-btn" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class = "like-count">
+          いいね！<%= post.favorites.count %>件
+        </div>
+
+        <div class = "article-content-second">
+          <div class = "text content-user-name">
+            <%= post.user.name %>
+          </div>
+          <%= post.content %>
+        </div>
+
+        <div class = "article-content-third">
+          <div id="comments_area" class = "comments_area">
+            <%= render partial: 'comments/index', locals: { comments: post.comments, post: post } %>
+          </div>
+          <%= render partial: 'comments/form', locals: { comment: post.comments.build, post: post } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class = "pagenate-wrapper">
+    <%= paginate @posts %>
+  </div>
+</div>
+
+
+==============================
 <% @posts.each do |post| %>
 
     <div class = "article">
