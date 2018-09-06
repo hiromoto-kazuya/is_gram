@@ -1,0 +1,12 @@
+<ul>
+  <% comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <li>
+        <div>
+          <%= post.user.name %>
+          <%= comment.content %>
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

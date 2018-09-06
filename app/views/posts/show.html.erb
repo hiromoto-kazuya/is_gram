@@ -1,20 +1,22 @@
-
 <h1 class = "post_page_title">投稿詳細</h1>
-
 <div class = "article">
   <div class = "article-header-contetns">
     <div class = "detail-text detail-title">
       タイトル:  <%= @post.title %>
     </div>
   </div>
-    <div><%= image_tag @post.image %></div>
-    <div class = "detail-text detail-content">
-      内容:  <%= @post.content %>
-    </div>
-    <% if @post.user_id == current_user.id %>
-      <%= link_to "編集する", edit_post_path(@post.id), class: "text detail-menu" %>
-      <%= link_to '削除する', post_path(@post.id), method: :delete,data: { confirm: '本当に削除しますか？'}, class: "text detail-menu" %>
-    <% end %>
+
+  <div><%= image_tag @post.image %></div>
+
+  <div class = "detail-text detail-content">
+    内容:  <%= @post.content %>
+  </div>
+
+  <% if @post.user_id == current_user.id %>
+    <%= link_to "編集する", edit_post_path(@post.id), class: "text detail-menu" %>
+    <%= link_to '削除する', post_path(@post.id), method: :delete,data: { confirm: '本当に削除しますか？'}, class: "text detail-menu" %>
+  <% end %>
+
   <div class = "back-link">
     <%= link_to'投稿一覧に戻る', posts_path, class: "text detail-menu" %>
   </div>

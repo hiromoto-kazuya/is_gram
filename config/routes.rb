@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-
-  get 'relationships/destroy'
-
   get "/", to: "users#new"
 
   resources :posts do
     collection do
       post :confirm
     end
+    resources :comments
   end
 
   resources :users

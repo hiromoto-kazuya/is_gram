@@ -14,13 +14,11 @@ class PostsController < ApplicationController
     else
       @post = Post.new
     end
-
   end
 
   def confirm
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-
     render :new if @post.invalid?
   end
 
@@ -64,6 +62,4 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
-
-
 end

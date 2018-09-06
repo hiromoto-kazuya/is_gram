@@ -35,6 +35,10 @@
   padding: 15px;
 }
 
+.article-image img {
+    width: 100%;
+}
+
 .detail {
   color: black;
   letter-spacing: -0.6em ;
@@ -58,12 +62,12 @@
   font-weight: bold;
 }
 
-.article-content-second {
-  margin-bottom: 15px;
-}
-
 .content-user-name {
   margin-left: 15px;
+}
+
+.comments_area ul {
+  padding-left: 15px;
 }
 
 /* ============以下、新規投稿============ */
