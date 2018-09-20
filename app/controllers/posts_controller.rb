@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :check_user_login_status, only:[:index, :new, :edit, :show, :destroy]
 
   def index
-    @following_posts = Post.where(user_id: current_user.following )
+    @following_posts = Post.where(user_id: current_user.following)
     @myposts = Post.where(user_id: current_user.id)
     @posts = Post.where(id: @following_posts + @myposts ).order(created_at: :desc).page(params[:page]).per(5)
   end
@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    raise
     if @post.save
     PostMailer.post_mail(@post).deliver
       redirect_to posts_path, notice: "投稿が完了しました"
@@ -41,7 +42,6 @@ class PostsController < ApplicationController
   end
 
   def update
-
     if @post.update(post_params)
       redirect_to post_path(id: @post.id), notice: "編集が完了しました"
     else

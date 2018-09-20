@@ -19,13 +19,11 @@
 
       <div class = "article-content">
         <div class ="article-content-first">
-
           <div id="favorite_btn_<%= post.id %>">
             <%= render partial: "posts/favorite", locals: {post: post} %>
           </div>
-          
         </div>
-
+        
         <div class = "article-content-second">
           <div class = "text content-user-name">
             <%= post.user.name %>
@@ -34,10 +32,10 @@
         </div>
 
         <div class = "article-content-third">
-          <div id="comments_area" class = "comments_area">
-            <%= render partial: 'comments/index', locals: { comments: post.comments, post: post } %>
+          <div id="comments_area_<%= post.id %>" class = "comments_area">
+            <%= render partial: 'comments/index', locals: { comments: post.comments, post: post }, remote: true %>
           </div>
-          <%= render partial: 'comments/form', locals: { comment: post.comments.build, post: post } %>
+          <%= render partial: 'comments/form', locals: { comment: post.comments.build, post: post }, remote: true %>
         </div>
       </div>
     </div>
