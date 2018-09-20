@@ -89,7 +89,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   #下記mailer実装のため追記
-  config.action_mailer.default_url_options = { host: '自分のHerokuアプリのドメイン' }
+  config.action_mailer.default_url_options = { host: 'https://clonegram-kazuya.herokuapp.com/' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
