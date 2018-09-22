@@ -25,7 +25,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    raise
     if @post.save
     PostMailer.post_mail(@post).deliver
       redirect_to posts_path, notice: "投稿が完了しました"
