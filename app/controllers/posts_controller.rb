@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def new
     if params[:back]
       @post = Post.new(post_params)
+      raise
     else
       @post = Post.new
     end

@@ -10,7 +10,8 @@
 
       <p>タイトル:<%= @post.title %></p>
       <p>本文:<%= @post.content %></p>
-      <p><%= image_tag @post.image, :size => "270x200" %></p>
+      <p><%= image_tag @post.image , :size => "270x200" %></p>
+
       <%= form.submit  "送信する" %>
     <% end %>
     <%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |form| %>

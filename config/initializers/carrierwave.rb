@@ -18,4 +18,5 @@ CarrierWave.configure do |config|
       config.fog_directory = 'isgram-clone-development'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/isgram-clone-development'
   end
+
 end

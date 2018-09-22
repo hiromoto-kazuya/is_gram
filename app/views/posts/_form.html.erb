@@ -22,8 +22,9 @@
       </div>
       <div class = "form-group">
         <%= form.label :image %>
-        <%= image_tag(@post.image.url, :size => "270x200") if @post.image.url %>
+        <%= image_tag(@post.image.url , :size => "270x200") if @post.image.url %>
         <%= form.file_field :image, id: :post_image %>
+        <%= form.hidden_field :image_cache %>
       </div>
 
       <%= form.submit "投稿する", class: "btn submit-btn" %>
